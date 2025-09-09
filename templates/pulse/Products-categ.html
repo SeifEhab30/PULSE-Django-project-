@@ -1,0 +1,125 @@
+  {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <head>
+    <title>Products</title>
+</head>
+<body class=""
+  data-auth="{{ request.user.is_authenticated|yesno:'true,false' }}"
+  data-username="{{ request.user.username|default:'' }}"
+  >
+    <!-- Navbar start-->
+   <nav class="navbar  navbar-expand-lg navbar-dark bg-dark ">
+    <a class="navbar-brand" href="{% url 'index' %}">Pulse</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav py-1">
+        <li class="nav-item ">
+          <a class="nav-link text-white" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <button style="font-size: 20px; padding: 8px;" class="btn text-white dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Products
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{% url 'Products' %}">All Products</a>
+              <a class="dropdown-item" href="{% url 'Products-categ' %}">Categories</a>
+              </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'Contact' %}">Contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'about' %}">About us</a>
+        </li>
+        <li class="nav-item">
+        <select class="select-container">
+        <option value="" selected hidden disabled>Theme</option>
+        <option value="1">Default</option>
+        <option value="2">Basketball</option>
+        <option value="3">Football</option>
+        <option value="" disabled>* More coming soon *</option>
+        </select>
+        </li>
+      </ul>
+    </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Login Trigger -->
+
+  <a href="{% url 'login' %}" class="nav-link text-white logged-out">Login</a>
+  <a href="{% url 'register' %}" class="nav-link text-white logged-out">Register</a>
+  <span class="nav-link text-white logged-in" style="display:none;">
+    Hi, <strong id="nav-username"></strong>
+  </span>
+    <a href="{% url 'cart_page' %}" class="nav-link text-white logged-in" style="display:none;">
+    View Cart 
+  </a>
+<a class="nav-link text-white logged-in" style="display:none;" href="{% url 'logout' %}">
+  Logout
+</a>
+
+</nav>
+<!-- Navbar end-->
+ <!--Main Body start-->
+ <div class="container main-body mb-0 pb-5">
+  <!--Error message for missing backend features-->
+   <div class="error-message" style="display: none;">
+     <div class="alert alert-danger fade show" role="alert">
+   <strong>Error!</strong> Will be added with Later.
+   <button type="button" class="close" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+   </div>
+   <!---->
+    <div class="row justify-content-center align-items-center text-center mt-5">
+    <div class="col-12 text-center bg-custom text-white">
+      <h1 class="display-3 font-weight-bold">Our Product Categories</h1>
+      <p class="display-5 lead">Choose Your Desired Category</p>
+    </div>
+  </div>
+<div class="product-grid">
+  <div class="row justify-content-center align-items-center text-center">
+    <!--LOOP START-->
+    {% for cat in cats %}
+    <div class="col-sm-3 product-card bg-custom text-white my-5 mx-4">
+      <a href="{% url 'Products-by-cat' cat.slug %}" style="text-decoration: none; color: inherit;" >
+      <img src="{{ cat.image.url }}" style="width: 100%; height: 50%;" class="mb-3">
+      <h3 class="font-weight-bold mb-3 product-header">{{ cat.title }}</h3>
+    </a>
+  </div>
+    {% endfor %}
+    <!--LOOP END-->
+  </div>
+</div>
+</div>
+ <!--Main Body end-->
+<!-- Footer start-->
+<div class="container-fluid footer bg-custom text-white text-center py-5 mt-0">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="mb-0">© 2025 Pulse Sports Gear. All rights reserved.</p>
+      <p class="mb-0">Follow us on social media: 
+        <a href="#" class="footer-socials text-white">Facebook</a> | 
+        <a href="#" class="footer-socials text-white">Instagram</a> | 
+        <a href="#" class="footer-socials text-white">Twitter</a>
+      </p>
+      <p class="mb-0">Contact us: <a href="mailto:info@pulse.com" class="footer-socials text-white">info@pulse.com</a></p>
+    </div>
+  </div>
+</div>
+<!-- Footer end-->
+
+    <script src="{% static 'script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

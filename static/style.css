@@ -1,0 +1,193 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+    background:url('./img/gym.jpeg') no-repeat center center fixed;
+    background-color: rgb(32,30,30)!important;
+    background-size: cover;
+    height: 100vh;
+    z-index: 0;
+}
+.bg-custom {
+    background-color: rgb(32, 30, 30);
+}
+.footer.bg-custom {
+    background-color: rgb(42, 41, 41);
+}
+.main-body {
+  padding-top: 70px;
+  background-color: rgba(255, 255, 240, 0.416);
+  min-height: 100vh;
+}
+.noto-sans {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.navbar{
+    background-color: rgb(32,30,30)!important;
+    width: 100%;
+    z-index: 1000;
+    font-size:20px;
+    top: 0;
+}
+.navbar-brand{
+    font-size: 35px;
+    font-style: italic;
+    font-weight: 700;
+}
+body.basketball{
+    background:url('./img/Court.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    z-index: 0;
+}
+body.football{
+    background:url('./img/Pitch.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    z-index: 0;
+}
+
+.basketball {
+    background-color: rgba(81, 34, 16, 0.99) !important;
+}
+.football {
+    background-color: rgba(200, 200, 200, 0.99) !important;
+}
+.test{
+    height: 100vh;
+}
+.select-container {
+    background: none;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    width: 50%;
+    padding: 8px;
+}
+option:checked {
+    color: orange;
+}
+option:not(:disabled){
+    color: black;
+}
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(32, 30, 30, 0.8));
+    z-index: 1;
+}
+.disp{
+    height: 400px;
+}
+
+.about-us, .comments {
+    padding: 40px 20px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.btn-block {
+  border-radius: 20px;
+}
+
+.error-message, .warning{
+    top: 100px;
+    width: 73%;
+    position:fixed;
+    z-index: 10000000;
+}
+
+
+.product-card {
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s;
+    height: 400px;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+.product-text {
+    font-size: 14px;
+    margin: 5px 0;
+    line-height: 1.3;
+    white-space: nowrap;       /* keep text in one line */
+    overflow: hidden;          /* hide overflow text */
+    text-overflow: ellipsis;   /* add the "..." */
+    display: block;            /* needed for ellipsis to work */
+    max-width: 100%;           /* ensures it doesn’t overflow container */
+}
+.product-card img {
+    width: 100%;
+    height: 50%;
+}
+.product-header{
+    max-width: 100%;           /* ensures it doesn’t overflow container */
+    overflow: hidden;          /* hide overflow text */
+}
+.pagination-container {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-btn {
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.pagination-btn:hover {
+    background: rgba(32,30 ,30,0.8);
+}
+
+.pagination-btn.active {
+  background: #393939;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 4px;
+    padding: 12px 15px;
+    font-size: 16px;
+}
+
+.btn-custom {
+    border: none;
+    border-radius: 4px;
+    padding: 12px 15px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(47, 45, 45);
+}
+
+.btn-custom:hover {
+    background-color: rgba(47, 45, 45, 0.5);
+    color: white;
+}
+
+.hidden-file {
+    display: none;
+}
